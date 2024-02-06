@@ -1,0 +1,119 @@
+.main-container {
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.top-bar{
+    display:flex;
+    height:15%;
+}
+
+.title {
+    width: 40%;
+    padding: 1vh 1vw;
+    background-color: forestgreen;
+    color: white;
+    font-size: calc(1vw + 1vh + 1vmin);
+}
+
+.product-info, .operator-info, .date-info {
+    padding: 1vh 1vw;
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: calc(0.8vw + 0.8vh + 0.8vmin);
+}
+
+.product-info, .operator-info {
+    width: 25%;
+    border-right:0.2vw solid black;
+}
+
+.product-info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-info-div p {
+    padding: 0;
+    margin: 0;
+}
+
+.date-info > .top-bar-info-div {
+    display:flex;
+}
+
+.body-bar {
+    height: 70%;
+    padding: 5vh 5vw;
+}
+
+
+.img-settings {
+    height: 100%;
+    margin-right:1vw;
+}
+
+.body-bar{
+    overflow: auto;
+    height: 100%;
+}
+
+.table-wrapper{
+   overflow-y: scroll;
+}
+
+.fixed_header thead th{
+    position: sticky;
+    top: 0px;
+}
+
+table {
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-collapse: collapse; /* make the table borders collapse to each other */
+    width: 100%;
+}
+
+th,
+td {
+    padding: 1vw 1vh;
+    border: 1px solid #ccc;
+}
+th {
+    background: #eee;
+}
+.table-wrapper{
+    max-height: 100%;
+    /* border: 1px solid black; */
+}
+
+table .btn {
+    margin: 2px;
+}
+
+
+.bottom-bar {
+    height: 15%;
+    display: flex;
+    margin: 0 2vw;
+    justify-content: space-between;
+}
+
+.bottom-bar div{
+    padding: 0.5vh 0.5vw;
+    color: white;
+    height: 50%;
+    background-color:#156C0E;
+    display:flex;
+    width: 15%;
+    border-radius:5px;
+    justify-content:center;
+    font-size: calc(0.8vw + 0.8vh + 0.8vmin);
+}

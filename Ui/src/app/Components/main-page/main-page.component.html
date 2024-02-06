@@ -1,0 +1,72 @@
+<div class="main-container">
+    <div class="top-bar">
+        <div class="title">
+            <p style="font-weight:bold;">User Control (LDAP)</p>
+        </div>
+        <div class="product-info">
+            <div class="top-bar-info-div"><p>Employee No.</p><p style="font-weight:bold;">{{auth.loggedemployee.employeeNumber}}</p></div>
+            <div class="top-bar-info-div"><p>Common name</p> <p style="font-weight:bold;">{{auth.loggedemployee.cn}}</p></div>
+            <div class="top-bar-info-div"><p>Surename</p><p style="font-weight:bold;">{{auth.loggedemployee.sn}}</p></div>
+        </div>
+        <div class="operator-info">
+            <div class="top-bar-info-div"><p>{{auth.userEmail}}</p></div>
+            <div class="top-bar-info-div"><p style="font-weight:bold;">Role :{{ auth.loggedemployee.employeeType}}</p></div>
+        </div>
+        <div class="date-info">
+            <div class="top-bar-info-div"><p>{{timeDate.currentDate}}</p></div>
+            <div class="top-bar-info-div"><p>{{timeDate.currentTime}}</p></div>
+        </div>
+    </div>
+
+    <div class="body-bar">
+        <button *ngIf="(auth.loggedemployee.employeeType === 'Admin')" (click)="onAddMember()" class="btn btn-md btn-outline-primary"><i class="fa fa-user"></i> Add new member</button>
+        <div class="table-wrapper">
+            <table class="fixed_header">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Created Date & Time</th>
+                        <th style="width: 10%;">Employee Type</th>
+                        <th style="width: 10%;">Employee Number</th>
+                        <th style="width: 15%;">Common name</th>
+                        <th style="width: 15%;">Surename</th>
+                        <th style="width: 15%;">Email</th>
+                        <th style="width: 20%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let member of arrayOfMembers">
+                        <td>{{member.createdTimestamp}}</td>
+                        <td>{{member.employeeType}}</td>
+                        <td>{{member.employeeNumber}}</td>
+                        <td>{{member.cn}}</td>
+                        <td>{{member.sn}}</td>
+                        <td>{{member.uid}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info" (click)="detailsMember(member)">
+                                <i class="fa fa-search"></i> Details
+                            </button>
+                            <button *ngIf="(auth.loggedemployee.employeeType === 'Admin')" class="btn btn-sm btn-warning" 
+                             (click)="editMember(member)"   
+                            >
+                                <i class="fa fa-edit"></i> Edit
+                            </button>
+                            <button *ngIf="(auth.loggedemployee.employeeType === 'Admin')" class="btn btn-sm btn-danger"
+                             (click)="deleteMember(member)">
+                                <i class="fa fa-remove"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div (click)="onSignOut()"><p>Logoff</p></div>
+    </div>
+</div>
+
+<app-add-member *ngIf="isPopupAddMember" (addMemberCloseBtnClicked)="onAddMember()"></app-add-member>
+<app-edit-member *ngIf="isPopupEditMember" (editMemberCloseBtnClicked)="closePopup()"></app-edit-member>
+<app-delete-member *ngIf="isPopupDeleteMember" (deleteMemberCloseBtnClicked)="closePopup()"></app-delete-member>
+<app-details-member *ngIf="isPopupDetailsMember" (CloseBtnClicked)="closePopup()"></app-details-member>

@@ -1,0 +1,55 @@
+<div class="popup-body">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Member Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <form >
+            <div class="form-group">
+
+              <!-- Email -->
+              <label for="uid">Email</label>
+              <div class="input-group">
+                <input id="uid" class="form-control" [disabled]="true" value="{{this.auth.selectedMember.uid}}">
+              </div>
+
+              <!-- Sure Name -->
+              <label for="surename">Sure Name</label>
+              <div class="input-group">
+                <input id="surename" class="form-control" [disabled]="true" value="{{this.auth.selectedMember.sn}}">
+              </div>
+
+              <!-- Common Name -->
+              <label for="commonname">Common Name</label>
+              <div class="input-group">
+                <input id="commonname" class="form-control" [disabled]="true" value="{{this.auth.selectedMember.cn}}">
+              </div>
+
+              <!-- Employee Number -->
+              <label for="employeenumber">Employee Number</label>
+              <div class="input-group">
+                <input id="employeenumber" class="form-control" [disabled]="true" value="{{this.auth.selectedMember.employeeNumber}}">
+              </div>
+
+              <!-- Employee Type -->
+              <label for="employeeType">Employee Type</label>
+              <div class="input-group">
+                <select  name="" id="employeeType" [disabled]="true" value="{{this.auth.selectedMember.employeeType}}"> 
+                    <option value="Admin">Admin</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Development">Development</option>
+                    <option value="Operators">Operators</option>
+                </select>
+              </div>
+            </div>
+            <div class="submit-btn">
+                <button class="btn btn-primary" type="submit" (click)="onClose()">Close</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="overlay"></div>
