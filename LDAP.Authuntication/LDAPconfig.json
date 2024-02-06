@@ -1,0 +1,10 @@
+{
+  "LDAPServer": {
+    "Server": "localhost",
+    "Port": 10389,
+    "Domain": "com",
+    "Subdomain": "example",
+    "Zone": "dc",
+    "Groups": ["Development","Electrical","Operators"]
+  }
+}
