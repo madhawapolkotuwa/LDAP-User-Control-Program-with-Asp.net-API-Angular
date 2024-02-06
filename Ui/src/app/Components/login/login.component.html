@@ -1,0 +1,47 @@
+<div class="main-container">
+    <div class="login-card">
+        <div class="title-bar">
+            Login
+        </div>
+        <div class="input-body">
+            <div class="card-m" [formGroup]="loginForm">
+                <div class="input-m">
+                    <div class="label">
+                        Email
+                    </div>
+                    <div class="input-field"
+                        [class.error]="loginForm.controls['email'].dirty &&
+                        loginForm.hasError('required', 'email')">
+                        <input type="text" formControlName="email" placeholder="Email" required>
+                    </div>
+                    <small
+                        *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="text-danger">
+                        <span *ngIf="email.errors?.['required']">*Email is required.</span>
+                        <span>*Email is invalid</span>
+                    </small>
+                    
+                </div>
+                <div class="input-m">
+                    <div class="label">
+                        Password
+                    </div>
+                    <div class="input-field" >
+                        <input type="password" formControlName="password" placeholder="Password" required>
+                    </div>
+                    <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                        *Password is required
+                    </small>
+                </div>
+                
+                <div>
+                    <button class="login-btn" (click)="onLogin()" type="submit" title="login with email & password">Login</button>
+                    <!-- <button class="login-btn" routerLink="/main">Login</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="popup-body">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add a new Member</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="editMemberForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+
+              <!-- Email -->
+              <label for="uid">Email</label>
+              <div class="input-group">
+                <input id="uid" class="form-control"  [disabled]="true" value="{{this.auth.selectedMember.uid}}">
+              </div>
+              <!-- Password -->
+              <label for="password">New Password</label>
+              <div class="input-group">
+                <input id="password" class="form-control" formControlName="password">
+              </div>
+              <div>
+                <small *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                    *New Password is required
+                </small>
+              </div>
+
+              <!-- Sure Name -->
+              <label for="surename">Sure Name</label>
+              <div class="input-group">
+                <input id="surename" class="form-control" formControlName="surename">
+              </div>
+              <div>
+                <small *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="text-danger">
+                    *surname is required
+                </small>
+              </div>
+
+              <!-- Common Name -->
+              <label for="commonname">Common Name</label>
+              <div class="input-group">
+                <input id="commonname" class="form-control" formControlName="commonname">
+              </div>
+              <div>
+                <small *ngIf="commonname.invalid && (commonname.dirty || commonname.touched)" class="text-danger">
+                    *commonname is required
+                </small>
+              </div>
+
+              <!-- Employee Number -->
+              <label for="employeenumber">Employee Number</label>
+              <div class="input-group">
+                <input id="employeenumber" type="number" class="form-control" formControlName="employeenumber">
+              </div>
+              <div>
+                <small *ngIf="employeenumber.invalid && (employeenumber.dirty || commonname.touched)" class="text-danger">
+                    *employeenumber is required
+                </small>
+              </div>
+
+              <!-- Employee Type -->
+              <label for="employeeType">Employee Type</label>
+              <div class="input-group">
+                <select  name="" id="employeeType" formControlName="employeetype">
+                    <option value="Admin">Admin</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Development">Development</option>
+                    <option value="Operators">Operators</option>
+                </select>
+              </div>
+            </div>
+            <div class="submit-btn">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="overlay"></div>
