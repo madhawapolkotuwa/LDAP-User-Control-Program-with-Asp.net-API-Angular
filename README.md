@@ -11,3 +11,5 @@ This guide utilizes Asp.net for the backend API and Angular for the frontend, pr
 - **Dynamic Group Changes:** Effortlessly manage user groups in real-time, optimizing organizational efficiency.
 - **Frontend Development with Angular:** Craft an intuitive Angular frontend to interact seamlessly with the Asp.net API.
 - **Security Best Practices: Implement** industry-standard security practices to safeguard user data and maintain a resilient LDAP system.
+
+[![Demo Video](https://img.youtube.com/vi/9eXFfEKfLnU/maxresdefault.jpg)](https://youtu.be/9eXFfEKfLnU)
