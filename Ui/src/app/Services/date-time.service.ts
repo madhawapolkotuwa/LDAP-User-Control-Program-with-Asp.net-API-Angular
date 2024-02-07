@@ -12,7 +12,7 @@ export class DateTimeService {
   public currentTime : any;
 
   constructor(private datePipe: DatePipe) {
-    this.currentDate  = this.datePipe.transform((new Date), 'MM.dd.yyyy');
+    this.currentDate  = this.datePipe.transform((new Date), 'dd.MM.yyyy');
     this.currentTime = this.datePipe.transform((new Date), 'H:mm:ss');
    }
 
