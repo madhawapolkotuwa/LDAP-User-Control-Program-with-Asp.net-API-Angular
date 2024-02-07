@@ -45,12 +45,11 @@ export class MainPageComponent implements OnInit{
     this.auth.logout().subscribe({
       next:(res)=>{
         this.toast.success({detail:"SUCCESS",summary:res.message, duration:5000});
-        //console.log("logrdin");
+        this.auth.isLoggedin = false;
         this.router.navigate(['']);
       },
       error:(err)=>{
         this.toast.error({detail:"ERROR", summary:err.error.message, duration:5000});
-        //console.log("error");
       }
     })
   }
