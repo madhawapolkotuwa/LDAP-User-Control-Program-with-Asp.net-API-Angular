@@ -18,6 +18,7 @@ export class AuthService {
   public userEmail:string = ""; 
   public loggedemployee: Member = new Member();
   public members: Member[] = [];
+  public isLoggedin: boolean = false;
 
   private memberSubject = new BehaviorSubject<Member[]>([]);
   public member$ = this.memberSubject.asObservable();
@@ -101,5 +102,13 @@ export class AuthService {
 
   saveSelectedMember(member: Member){
     this.selectedMember = member;
+  }
+
+  canActivate():boolean{
+    if(this.isLoggedin){
+      return true;
+    }
+    this.router.navigate(["/"]);
+    return false;
   }
 }
