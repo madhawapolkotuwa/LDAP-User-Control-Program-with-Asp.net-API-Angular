@@ -108,7 +108,7 @@ export class AuthService {
     if(this.isLoggedin){
       return true;
     }
-    this.router.navigate(["/"]);
+    this.router.navigate(['']);
     return false;
   }
 }
